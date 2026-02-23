@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lavage Auto Express</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .card {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 15px;
+            background-color: green;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Lavage Auto Express 🚗</h1>
+
+<div class="card">
+
+    <h3>Réservez votre lavage</h3>
+
+    <input type="text" id="nom" placeholder="Votre nom">
+
+    <input type="text" id="adresse" placeholder="Votre adresse">
+
+    <select id="service">
+        <option value="">Choisir un service</option>
+        <option value="Lavage simple - 10$">Lavage simple - 10$</option>
+        <option value="Lavage complet - 20$">Lavage complet - 20$</option>
+        <option value="Lavage premium - 30$">Lavage premium - 30$</option>
+    </select>
+    <input type="date" id="date">
+
+<input type="time" id="heure">
+
+<select id="paiement">
+    <option value="">Mode de paiement</option>
+    <option value="Paiement en cash">Paiement en cash</option>
+    <option value="Mobile Money">Mobile Money</option>
+</select>
+
+    <button onclick="reserver()">Réserver maintenant</button>
+
+</div>
+
+<script>
+
+function reserver() {
+
+    function reserver() {
+
+    let nom = document.getElementById("nom").value;
+    let adresse = document.getElementById("adresse").value;
+    let service = document.getElementById("service").value;
+    let date = document.getElementById("date").value;
+    let heure = document.getElementById("heure").value;
+    let paiement = document.getElementById("paiement").value;
+
+    if(nom === "" || adresse === "" || service === "" || date === "" || heure === "" || paiement === "") {
+        alert("Veuillez remplir tous les champs");
+        return;
+    }
+
+    let message = "Bonjour, je m'appelle " + nom +
+                  ". Je souhaite : " + service +
+                  ". Date : " + date +
+                  " à " + heure +
+                  ". Adresse : " + adresse +
+                  ". Paiement : " + paiement;
+
+    let numero = "243XXXXXXXXX"; // Mets ton numéro ici
+
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(message);
+
+    window.open(url);
+
+}
+
+</script>
+
+</body>
+</html>
